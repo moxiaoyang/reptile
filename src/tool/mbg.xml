@@ -39,7 +39,7 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table tableName="managerinfo" domainObjectName="ManagerInfo"
+        <table tableName="managerjob" domainObjectName="ManagerJob"
                enableInsert ="true"
                enableSelectByPrimaryKey ="true"
                enableUpdateByPrimaryKey ="false"

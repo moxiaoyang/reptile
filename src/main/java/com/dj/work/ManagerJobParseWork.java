@@ -1,6 +1,6 @@
 package com.dj.work;
 
-import com.dj.mapper.ManagerInfoMapper;
+import com.dj.mapper.ManagerJobMapper;
 import com.dj.mapper.ManagerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -8,19 +8,20 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 
 /**
+ * 解析管理者工作信息
  * <p>
  * 1.
  * </p>
  *
  * @author 莫小阳
  * @version 1.0.0
- * @date 2017/12/22 0022
+ * @date 2017/12/23 0023
  */
 @Component
-public class ManagerInfoParseWork {
+public class ManagerJobParseWork {
 
     @Autowired
-    private ManagerInfoMapper managerInfoMapper;
+    private ManagerJobMapper managerJobMapper;
 
     @Autowired
     private ManagerMapper managerMapper;
@@ -28,10 +29,11 @@ public class ManagerInfoParseWork {
     @PostConstruct
     public void init() {
         try {
-            ManagerInfoParse htmlParse = new ManagerInfoParse(managerInfoMapper, managerMapper);
-            //htmlParse.startWork();
+            ManagerJobParse managerJobParse = new ManagerJobParse(managerJobMapper, managerMapper);
+            managerJobParse.startWork();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 }

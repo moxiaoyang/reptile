@@ -15,6 +15,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -58,12 +59,12 @@ public class ManagerInfoParse {
         log.info("call 开始解析数据信息···");
         if (Boolean.TRUE) {
             ExecutorService fixedThreadPool = Executors.newFixedThreadPool(20);
-            for (int i = 0; i <= 18770; i++) {
+            for (int i = 0; i <= 389; i++) {
                 List<ManagerDo> data;
                 int begin;
                 int end;
-                if (i % 500 == 0 && i > 0) {
-                    begin = i - 500 + 1;
+                if (i % 100 == 0 && i > 0) {
+                    begin = i - 100 + 1;
                     end = i;
                     data = managerMapper.selectAll(begin, end);
                     log.info("call begin = {},end = {}, size = {}", begin, end, data.size());
@@ -75,9 +76,9 @@ public class ManagerInfoParse {
                         }
                     });
                 }
-                if (i == 18500) {
-                    begin = 18501;
-                    end = 18770;
+                if (i == 389) {
+                    begin = 301;
+                    end = 389;
                     data = managerMapper.selectAll(begin, end);
                     log.info("call begin = {},end = {}, size = {}", begin, end, data.size());
                     final List<ManagerDo> finalData = data;
@@ -131,6 +132,10 @@ public class ManagerInfoParse {
             Elements elementsByClass = doc.getElementsByClass("name_01");
             String managerName = elementsByClass.text();
             log.info("call 结果：{}", managerName);
+            if (StringUtils.isEmpty(managerName)) {
+                log.info("call 数据有误");
+                return new ManagerInfoDo();
+            }
             Elements gr_table = doc.getElementsByClass("gr_table");
             Elements trs = gr_table.select("tr");
             int flag = 0;
@@ -165,7 +170,7 @@ public class ManagerInfoParse {
             log.info("call 管理者信息：{}", managerInfoDo);
         } catch (Exception e) {
             log.error("call 解析发生异常，信息：{}", e);
-            return null;
+            return new ManagerInfoDo();
         }
         return managerInfoDo;
     }
