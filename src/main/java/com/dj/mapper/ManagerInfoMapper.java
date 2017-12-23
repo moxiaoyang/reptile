@@ -1,6 +1,9 @@
 package com.dj.mapper;
 
+import com.dj.model.ManagerInfoAll;
 import com.dj.model.ManagerInfoDo;
+
+import java.util.List;
 
 public interface ManagerInfoMapper {
     /**
@@ -10,4 +13,6 @@ public interface ManagerInfoMapper {
      * @mbg.generated
      */
     int insert(ManagerInfoDo record);
+
+    List<ManagerInfoAll> queryAll();
 }

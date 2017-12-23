@@ -1,7 +1,9 @@
 package com.dj.work;
 
 import com.dj.mapper.DataMapper;
+import com.dj.mapper.ManagerInfoMapper;
 import com.dj.model.DataDo;
+import com.dj.model.ManagerInfoAll;
 import com.dj.util.HttpUtils;
 import com.dj.util.JxlsUtils;
 import com.google.common.collect.Maps;
@@ -37,6 +39,9 @@ public class HtmlParse extends BaseTest {
     @Autowired
     private DataMapper dataMapper;
 
+    @Autowired
+    private ManagerInfoMapper managerInfoMapper;
+
     /**
      * 导出 EXCEL
      */
@@ -46,6 +51,21 @@ public class HtmlParse extends BaseTest {
         Map<String, Object> exportData = Maps.newHashMap();
         exportData.put("list", allData);
         JxlsUtils.exportExcel(new File("C:\\Users\\Administrator\\Desktop\\data.xlsx"), new File("C:\\Users\\Administrator\\Desktop\\mydata.xlsx"), exportData);
+        System.out.println("导出成功~");
+    }
+
+
+    /**
+     * 导出 EXCEL
+     */
+    @Test
+    public void test_06() throws IOException {
+        List<ManagerInfoAll> managerInfoAlls = managerInfoMapper.queryAll();
+        Map<String, Object> exportData = Maps.newHashMap();
+        exportData.put("list", managerInfoAlls);
+        JxlsUtils.exportExcel(new
+                        File("C:\\Users\\莫小阳\\Desktop\\data.xlsx"),
+                new File("C:\\Users\\莫小阳\\Desktop\\mydata.xlsx"), exportData);
         System.out.println("导出成功~");
     }
 

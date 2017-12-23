@@ -23,4 +23,6 @@ public interface ManagerMapper {
      * @return 结果
      */
     List<ManagerDo> selectAll(@Param("begin") int begin, @Param("end") int end);
+
+    List<ManagerDo> selectAllByT();
 }

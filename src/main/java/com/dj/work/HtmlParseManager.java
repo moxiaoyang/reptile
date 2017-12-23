@@ -52,7 +52,7 @@ public class HtmlParseManager {
     public void startWork() {
         try {
             log.info("开始抓取数据");
-            List<String> dataList = IOUtils.readLines(new FileReader("E:\\CodeTest\\Java\\reptile-data\\codes.txt"));
+            List<String> dataList = IOUtils.readLines(new FileReader("F:\\Code\\Java\\reptile\\codes.txt"));
             inserIntoDB(dataList);
         } catch (Exception e) {
             e.printStackTrace();

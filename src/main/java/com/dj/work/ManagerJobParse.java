@@ -56,7 +56,13 @@ public class ManagerJobParse {
      */
     public void startWork() {
         log.info("call 开始解析数据信息···");
+
         if (Boolean.TRUE) {
+            List<ManagerDo> data = managerMapper.selectAllByT();
+            foreachData(data);
+        }
+
+        if (Boolean.FALSE) {
             ExecutorService fixedThreadPool = Executors.newFixedThreadPool(20);
             for (int i = 0; i <= 18770; i++) {
                 List<ManagerDo> data;

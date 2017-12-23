@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dj.mapper.ManagerInfoMapper">
-  <resultMap id="BaseResultMap" type="com.dj.model.ManagerInfoDo">
-    <result column="managerName" jdbcType="VARCHAR" property="managername" />
-    <result column="sex" jdbcType="VARCHAR" property="sex" />
-    <result column="country" jdbcType="VARCHAR" property="country" />
-    <result column="age" jdbcType="VARCHAR" property="age" />
-    <result column="edu" jdbcType="VARCHAR" property="edu" />
-    <result column="industry" jdbcType="VARCHAR" property="industry" />
-    <result column="title" jdbcType="VARCHAR" property="title" />
-    <result column="technical" jdbcType="VARCHAR" property="technical" />
-    <result column="introduction" jdbcType="VARCHAR" property="introduction" />
-    <result column="stocknameLink" jdbcType="VARCHAR" property="stocknamelink" />
-  </resultMap>
-  <insert id="insert" parameterType="com.dj.model.ManagerInfoDo">
+    <resultMap id="BaseResultMap" type="com.dj.model.ManagerInfoDo">
+        <result column="managerName" jdbcType="VARCHAR" property="managername"/>
+        <result column="sex" jdbcType="VARCHAR" property="sex"/>
+        <result column="country" jdbcType="VARCHAR" property="country"/>
+        <result column="age" jdbcType="VARCHAR" property="age"/>
+        <result column="edu" jdbcType="VARCHAR" property="edu"/>
+        <result column="industry" jdbcType="VARCHAR" property="industry"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="technical" jdbcType="VARCHAR" property="technical"/>
+        <result column="introduction" jdbcType="VARCHAR" property="introduction"/>
+        <result column="stocknameLink" jdbcType="VARCHAR" property="stocknamelink"/>
+    </resultMap>
+    <insert id="insert" parameterType="com.dj.model.ManagerInfoDo">
     insert into managerinfo (managerName, sex, country, 
       age, edu, industry, 
       title, technical, introduction, 
@@ -23,4 +23,19 @@
       #{title,jdbcType=VARCHAR}, #{technical,jdbcType=VARCHAR}, #{introduction,jdbcType=VARCHAR}, 
       #{stocknamelink,jdbcType=VARCHAR})
   </insert>
+    <select id="queryAll" resultType="com.dj.model.ManagerInfoAll">
+      SELECT
+          DISTINCT
+          managerName,
+          edu,
+          job,
+          begintime,
+          endtime,
+          introduction
+        FROM manager
+          LEFT JOIN managerinfo ON manager.stocknameLink = managerinfo.stocknameLink
+          LEFT JOIN managerjob ON manager.stocknameLink = managerjob.stocknamelink
+          WHERE managerName IS NOT NULL
+         ORDER BY managerName,begintime DESC
+    </select>
 </mapper>

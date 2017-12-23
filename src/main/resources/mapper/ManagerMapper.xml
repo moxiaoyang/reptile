@@ -30,4 +30,7 @@
              t.rownum >= #{begin} AND t.rownum <= #{end}
         ]]>
     </select>
+    <select id="selectAllByT" resultType="com.dj.model.ManagerDo">
+        SELECT * FROM manager WHERE stocknameLink NOT IN (SELECT managerjob.stocknameLink FROM managerjob )
+    </select>
 </mapper>

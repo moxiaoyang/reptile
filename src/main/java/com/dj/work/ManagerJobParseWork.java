@@ -30,7 +30,7 @@ public class ManagerJobParseWork {
     public void init() {
         try {
             ManagerJobParse managerJobParse = new ManagerJobParse(managerJobMapper, managerMapper);
-            managerJobParse.startWork();
+            //managerJobParse.startWork();
         } catch (Exception e) {
             e.printStackTrace();
         }
