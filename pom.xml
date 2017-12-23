@@ -1,0 +1,282 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.dj.reptile</groupId>
+    <artifactId>reptile-data</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>reptile-data Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <!--baofoo jar start-->
+        <cbpayservice.version>1.0.43</cbpayservice.version>
+        <baofoo.cgw.domain>4.0.0-SNAPSHOT</baofoo.cgw.domain>
+        <baofoo.fi.domain>4.0.0-SNAPSHOT</baofoo.fi.domain>
+        <baofoo.fi.ws>4.0.0-SNAPSHOT</baofoo.fi.ws>
+        <baofoo.ps.log>4.1.0-SNAPSHOT</baofoo.ps.log>
+        <baofoo-common-mvc>4.0.0-SNAPSHOT</baofoo-common-mvc>
+        <!--baofoo jar end-->
+        <java.version>1.6</java.version>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
+        <java.encoding>UTF-8</java.encoding>
+        <sonar.language>java</sonar.language>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <org.springframework.version>4.2.5.RELEASE</org.springframework.version>
+        <org.mybatis.version>3.2.1</org.mybatis.version>
+        <org.mybatis.spring.version>1.2.0</org.mybatis.spring.version>
+        <dubbo.version>2.5.3</dubbo.version>
+        <commosns.dbcp.version>1.4</commosns.dbcp.version>
+        <kafka.version>0.0.5</kafka.version>
+        <spring-data-redis.version>1.6.1.RELEASE</spring-data-redis.version>
+        <redis.version>2.6.0</redis.version>
+        <redisson.version>2.1.5</redisson.version>
+        <quartz.version>2.2.1</quartz.version>
+        <bestpaycommon.version>1.0</bestpaycommon.version>
+        <guava.version>15.0</guava.version>
+        <lombok.version>1.16.6</lombok.version>
+        <slf4j.version>1.7.5</slf4j.version>
+        <hamcrest.version>1.3</hamcrest.version>
+        <mockito.version>1.8.5</mockito.version>
+        <powermock.version>1.5.1</powermock.version>
+        <easymock.version>3.0</easymock.version>
+        <joda-time.version>2.3</joda-time.version>
+        <ojdbc.version>1.0.0</ojdbc.version>
+        <hsqldb.version>2.3.2</hsqldb.version>
+        <dozer.version>5.4.0</dozer.version>
+        <jackson-datatype-guava.version>2.3.0</jackson-datatype-guava.version>
+        <servlet.version>2.3</servlet.version>
+        <cglib.version>2.2.2</cglib.version>
+        <autoconfig.plugin.version>1.2</autoconfig.plugin.version>
+        <hibernate.validator>5.0.1.Final</hibernate.validator>
+        <commons-pool2.version>2.2</commons-pool2.version>
+        <commons-logging.version>1.2</commons-logging.version>
+        <junit.version>4.9</junit.version>
+        <dbunit.version>2.2</dbunit.version>
+        <commons-lang3.version>3.1</commons-lang3.version>
+        <oval.version>1.84</oval.version>
+        <service-facade.version>0.1.4-SNAPSHOT</service-facade.version>
+        <fastjson.version>1.1.27</fastjson.version>
+        <c3p0.version>0.9.1.2</c3p0.version>
+        <mchange-commons-java.version>0.2.10</mchange-commons-java.version>
+        <mysql-connector-java.version>5.1.34</mysql-connector-java.version>
+        <aspectjrt.version>1.8.6</aspectjrt.version>
+        <hessian.version>4.0.37</hessian.version>
+        <rabbit.version>1.3.4.RELEASE</rabbit.version>
+        <axis.version>1.4</axis.version>
+        <cxf.version>2.7.3</cxf.version>
+        <maven-deploy-plugin.version>2.7</maven-deploy-plugin.version>
+        <maven-source-plugin>2.1</maven-source-plugin>
+        <jdbcdslog.version>1.0.6.2</jdbcdslog.version>
+        <!--baofoo jar-->
+        <baofoo.cgw.domain>4.0.0-SNAPSHOT</baofoo.cgw.domain>
+        <baofoo.fi.domain>4.0.0-SNAPSHOT</baofoo.fi.domain>
+        <baofoo.fi.ws>4.0.0-SNAPSHOT</baofoo.fi.ws>
+        <baofoo.ps.log>4.1.0-SNAPSHOT</baofoo.ps.log>
+        <baofoo-common-mvc>4.0.0-SNAPSHOT</baofoo-common-mvc>
+        <!-- zookeeper -->
+        <zookeeper.version>3.4.6</zookeeper.version>
+        <dom4j.version>1.6.1</dom4j.version>
+        <xstream.version>1.3.1</xstream.version>
+        <oval.version>1.81</oval.version>
+        <system.commons.version>5.0.6</system.commons.version>
+        <hibernate.version>5.0.1.Final</hibernate.version>
+        <jedis.version>2.6.0</jedis.version>
+        <spring-data-redis.version>1.6.1.RELEASE</spring-data-redis.version>
+        <fastDFS.version>1.24</fastDFS.version>
+    </properties>
+
+
+    <dependencies>
+
+        <!-- mybatis -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+
+        <!-- spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${org.springframework.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>*</artifactId>
+                    <groupId>*</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${org.springframework.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml-schemas</artifactId>
+            <version>3.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jxls</groupId>
+            <artifactId>jxls</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jxls</groupId>
+            <artifactId>jxls-poi</artifactId>
+            <version>1.0.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.0-alpha4</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>23.5-jre</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.11.2</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-io -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+
+        <!--sql-->
+        <dependency>
+            <groupId>c3p0</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.34</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.43</version>
+        </dependency>
+
+
+        <!--日志框架-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.21</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.21</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.18</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- mybatis generator 插件 -->
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.6-SNAPSHOT</version>
+                <configuration>
+                    <verbose>true</verbose>
+                    <overwrite>true</overwrite>
+                    <configurationFile>src/tool/mbg.xml</configurationFile>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.mybatis.generator</groupId>
+                        <artifactId>mybatis-generator-core</artifactId>
+                        <version>1.3.7-SNAPSHOT</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+
+    </build>
+</project>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dj.mapper.ManagerMapper">
+    <resultMap id="BaseResultMap" type="com.dj.model.ManagerDo">
+        <result column="panelrate" jdbcType="VARCHAR" property="panelrate"/>
+        <result column="stocknameLink" jdbcType="VARCHAR" property="stocknameLink"/>
+    </resultMap>
+    <insert id="insert" parameterType="com.dj.model.ManagerDo">
+    insert into manager (panelrate, stockNameLink)
+    values (#{panelrate,jdbcType=VARCHAR}, #{stocknameLink,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertList">
+        insert into manager (panelrate, stockNameLink)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.panelrate},#{item.stocknameLink})
+        </foreach>
+    </insert>
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT *
+        FROM
+        (
+        SELECT
+        @rownum := @rownum + 1 rownum,
+        n.*
+        FROM (SELECT @rownum := 0) r, manager n
+        ) t
+        WHERE
+        <![CDATA[
+             t.rownum >= #{begin} AND t.rownum <= #{end}
+        ]]>
+    </select>
+</mapper>

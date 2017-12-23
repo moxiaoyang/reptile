@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dj.mapper.DataMapper">
+    <resultMap id="BaseResultMap" type="com.dj.model.DataDo">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="code" jdbcType="VARCHAR" property="code"/>
+        <result column="year" jdbcType="VARCHAR" property="year"/>
+        <result column="pjdf" jdbcType="VARCHAR" property="pjdf"/>
+        <result column="hyztpjdf" jdbcType="VARCHAR" property="hyztpjdf"/>
+        <result column="qscztpjdf" jdbcType="VARCHAR" property="qscztpjdf"/>
+        <result column="hyndfpm" jdbcType="VARCHAR" property="hyndfpm"/>
+        <result column="qscdfpm" jdbcType="VARCHAR" property="qscdfpm"/>
+        <result column="jzcsyl" jdbcType="VARCHAR" property="jzcsyl"/>
+        <result column="zzcsyl" jdbcType="VARCHAR" property="zzcsyl"/>
+        <result column="zyywlll" jdbcType="VARCHAR" property="zyywlll"/>
+        <result column="mgsy" jdbcType="VARCHAR" property="mgsy"/>
+        <result column="mgwfpll" jdbcType="VARCHAR" property="mgwfpll"/>
+        <result column="cbfylll" jdbcType="VARCHAR" property="cbfylll"/>
+        <result column="ylhj" jdbcType="VARCHAR" property="ylhj"/>
+        <result column="sdbl" jdbcType="VARCHAR" property="sdbl"/>
+        <result column="ldbl" jdbcType="VARCHAR" property="ldbl"/>
+        <result column="xjbl" jdbcType="VARCHAR" property="xjbl"/>
+        <result column="gdqybl" jdbcType="VARCHAR" property="gdqybl"/>
+        <result column="zcfzl" jdbcType="VARCHAR" property="zcfzl"/>
+        <result column="czhj" jdbcType="VARCHAR" property="czhj"/>
+        <result column="fhrzb" jdbcType="VARCHAR" property="fhrzb"/>
+        <result column="gxl" jdbcType="VARCHAR" property="gxl"/>
+        <result column="fhzkfpllb" jdbcType="VARCHAR" property="fhzkfpllb"/>
+        <result column="hbhj" jdbcType="VARCHAR" property="hbhj"/>
+        <result column="jysdgshxgzrrcfcs" jdbcType="VARCHAR" property="jysdgshxgzrrcfcs"/>
+        <result column="xphj" jdbcType="VARCHAR" property="xphj"/>
+        <result column="cpkfzc" jdbcType="VARCHAR" property="cpkfzc"/>
+        <result column="cxjsln" jdbcType="VARCHAR" property="cxjsln"/>
+        <result column="jscxxms" jdbcType="VARCHAR" property="jscxxms"/>
+        <result column="cxhj" jdbcType="VARCHAR" property="cxhj"/>
+        <result column="gdzrhj" jdbcType="VARCHAR" property="gdzrhj"/>
+        <result column="zgrjsr" jdbcType="VARCHAR" property="zgrjsr"/>
+        <result column="ygpx" jdbcType="VARCHAR" property="ygpx"/>
+        <result column="jxhj" jdbcType="VARCHAR" property="jxhj"/>
+        <result column="aqjc" jdbcType="VARCHAR" property="aqjc"/>
+        <result column="aqpx" jdbcType="VARCHAR" property="aqpx"/>
+        <result column="aqhj" jdbcType="VARCHAR" property="aqhj"/>
+        <result column="wwys" jdbcType="VARCHAR" property="wwys"/>
+        <result column="wwr" jdbcType="VARCHAR" property="wwr"/>
+        <result column="wwj" jdbcType="VARCHAR" property="wwj"/>
+        <result column="gayghj" jdbcType="VARCHAR" property="gayghj"/>
+        <result column="ygzrhj" jdbcType="VARCHAR" property="ygzrhj"/>
+        <result column="zlglys" jdbcType="VARCHAR" property="zlglys"/>
+        <result column="zlgltxzs" jdbcType="VARCHAR" property="zlgltxzs"/>
+        <result column="cpzlhj" jdbcType="VARCHAR" property="cpzlhj"/>
+        <result column="khmyddc" jdbcType="VARCHAR" property="khmyddc"/>
+        <result column="gysgpjz" jdbcType="VARCHAR" property="gysgpjz"/>
+        <result column="fsyhlpx" jdbcType="VARCHAR" property="fsyhlpx"/>
+        <result column="cxhhhj" jdbcType="VARCHAR" property="cxhhhj"/>
+        <result column="gyskhxfzhj" jdbcType="VARCHAR" property="gyskhxfzhj"/>
+        <result column="hbys" jdbcType="VARCHAR" property="hbys"/>
+        <result column="hjgltxrz" jdbcType="VARCHAR" property="hjgltxrz"/>
+        <result column="hbtrje" jdbcType="VARCHAR" property="hbtrje"/>
+        <result column="pwzls" jdbcType="VARCHAR" property="pwzls"/>
+        <result column="jynyzls" jdbcType="VARCHAR" property="jynyzls"/>
+        <result column="hjzlhj" jdbcType="VARCHAR" property="hjzlhj"/>
+        <result column="hjzrhj" jdbcType="VARCHAR" property="hjzrhj"/>
+        <result column="sdszllzeb" jdbcType="VARCHAR" property="sdszllzeb"/>
+        <result column="gyjzje" jdbcType="VARCHAR" property="gyjzje"/>
+        <result column="gxjzhj" jdbcType="VARCHAR" property="gxjzhj"/>
+        <result column="shzrhj" jdbcType="VARCHAR" property="shzrhj"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, code, year, pjdf, hyztpjdf, qscztpjdf, hyndfpm, qscdfpm, jzcsyl, zzcsyl, zyywlll, 
+    mgsy, mgwfpll, cbfylll, ylhj, sdbl, ldbl, xjbl, gdqybl, zcfzl, czhj, fhrzb, gxl, 
+    fhzkfpllb, hbhj, jysdgshxgzrrcfcs, xphj, cpkfzc, cxjsln, jscxxms, cxhj, gdzrhj, zgrjsr, 
+    ygpx, jxhj, aqjc, aqpx, aqhj, wwys, wwr, wwj, gayghj, ygzrhj, zlglys, zlgltxzs, cpzlhj, 
+    khmyddc, gysgpjz, fsyhlpx, cxhhhj, gyskhxfzhj, hbys, hjgltxrz, hbtrje, pwzls, jynyzls, 
+    hjzlhj, hjzrhj, sdszllzeb, gyjzje, gxjzhj, shzrhj
+  </sql>
+    <select id="selectByKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select 'false' as QUERYID,
+        <include refid="Base_Column_List"/>
+        from data
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <select id="getAllData" resultType="com.dj.model.DataDo">
+        select
+        <include refid="Base_Column_List"/>
+        from data
+    </select>
+    <insert id="insert" parameterType="com.dj.model.DataDo">
+    insert into data (id, code, year, 
+      pjdf, hyztpjdf, qscztpjdf, 
+      hyndfpm, qscdfpm, jzcsyl, 
+      zzcsyl, zyywlll, mgsy, 
+      mgwfpll, cbfylll, ylhj, 
+      sdbl, ldbl, xjbl, gdqybl, 
+      zcfzl, czhj, fhrzb, 
+      gxl, fhzkfpllb, hbhj, 
+      jysdgshxgzrrcfcs, xphj, cpkfzc, 
+      cxjsln, jscxxms, cxhj, 
+      gdzrhj, zgrjsr, ygpx, 
+      jxhj, aqjc, aqpx, aqhj, 
+      wwys, wwr, wwj, gayghj, 
+      ygzrhj, zlglys, zlgltxzs, 
+      cpzlhj, khmyddc, gysgpjz, 
+      fsyhlpx, cxhhhj, gyskhxfzhj, 
+      hbys, hjgltxrz, hbtrje, 
+      pwzls, jynyzls, hjzlhj, 
+      hjzrhj, sdszllzeb, gyjzje, 
+      gxjzhj, shzrhj)
+    values (#{id,jdbcType=BIGINT}, #{code,jdbcType=VARCHAR}, #{year,jdbcType=VARCHAR}, 
+      #{pjdf,jdbcType=VARCHAR}, #{hyztpjdf,jdbcType=VARCHAR}, #{qscztpjdf,jdbcType=VARCHAR}, 
+      #{hyndfpm,jdbcType=VARCHAR}, #{qscdfpm,jdbcType=VARCHAR}, #{jzcsyl,jdbcType=VARCHAR}, 
+      #{zzcsyl,jdbcType=VARCHAR}, #{zyywlll,jdbcType=VARCHAR}, #{mgsy,jdbcType=VARCHAR}, 
+      #{mgwfpll,jdbcType=VARCHAR}, #{cbfylll,jdbcType=VARCHAR}, #{ylhj,jdbcType=VARCHAR}, 
+      #{sdbl,jdbcType=VARCHAR}, #{ldbl,jdbcType=VARCHAR}, #{xjbl,jdbcType=VARCHAR}, #{gdqybl,jdbcType=VARCHAR}, 
+      #{zcfzl,jdbcType=VARCHAR}, #{czhj,jdbcType=VARCHAR}, #{fhrzb,jdbcType=VARCHAR}, 
+      #{gxl,jdbcType=VARCHAR}, #{fhzkfpllb,jdbcType=VARCHAR}, #{hbhj,jdbcType=VARCHAR}, 
+      #{jysdgshxgzrrcfcs,jdbcType=VARCHAR}, #{xphj,jdbcType=VARCHAR}, #{cpkfzc,jdbcType=VARCHAR}, 
+      #{cxjsln,jdbcType=VARCHAR}, #{jscxxms,jdbcType=VARCHAR}, #{cxhj,jdbcType=VARCHAR}, 
+      #{gdzrhj,jdbcType=VARCHAR}, #{zgrjsr,jdbcType=VARCHAR}, #{ygpx,jdbcType=VARCHAR}, 
+      #{jxhj,jdbcType=VARCHAR}, #{aqjc,jdbcType=VARCHAR}, #{aqpx,jdbcType=VARCHAR}, #{aqhj,jdbcType=VARCHAR}, 
+      #{wwys,jdbcType=VARCHAR}, #{wwr,jdbcType=VARCHAR}, #{wwj,jdbcType=VARCHAR}, #{gayghj,jdbcType=VARCHAR}, 
+      #{ygzrhj,jdbcType=VARCHAR}, #{zlglys,jdbcType=VARCHAR}, #{zlgltxzs,jdbcType=VARCHAR}, 
+      #{cpzlhj,jdbcType=VARCHAR}, #{khmyddc,jdbcType=VARCHAR}, #{gysgpjz,jdbcType=VARCHAR}, 
+      #{fsyhlpx,jdbcType=VARCHAR}, #{cxhhhj,jdbcType=VARCHAR}, #{gyskhxfzhj,jdbcType=VARCHAR}, 
+      #{hbys,jdbcType=VARCHAR}, #{hjgltxrz,jdbcType=VARCHAR}, #{hbtrje,jdbcType=VARCHAR}, 
+      #{pwzls,jdbcType=VARCHAR}, #{jynyzls,jdbcType=VARCHAR}, #{hjzlhj,jdbcType=VARCHAR}, 
+      #{hjzrhj,jdbcType=VARCHAR}, #{sdszllzeb,jdbcType=VARCHAR}, #{gyjzje,jdbcType=VARCHAR}, 
+      #{gxjzhj,jdbcType=VARCHAR}, #{shzrhj,jdbcType=VARCHAR})
+  </insert>
+</mapper>
